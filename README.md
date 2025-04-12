@@ -1,3 +1,26 @@
+This branch is a fork of Archipelago that cherry-picks various small commits that were merged into main, but haven't made it into a release yet.
+
+I use this branch to generate multiworlds for asyncs that I host. It is not intended for any other use case.
+
+## Process
+- I cherrypick commits from main that fix bugs or improve logic during generation.
+  - Commits that don't affect generation are not cherrypicked.
+- When a new Archipelago version is released, I sync this branch to that release, as all cherrypicked commits are in that release.
+- When generating a new multiworld for an async, I create a new tag on the current commit if one doesn't already exist, then generate from that tag.
+
+## List of current cherrypicked commits
+- Core: Handle integer arguments in player names gracefully ([#4151](https://github.com/ArchipelagoMW/Archipelago/issues/4151))
+- DLC Quest: Fix more items than locations with non existing start inventory ([#4735](https://github.com/ArchipelagoMW/Archipelago/issues/4735))
+- DS3: Mark a lizard location that was previously not annotated ([#4860](https://github.com/ArchipelagoMW/Archipelago/issues/4860))
+- Factorio: Fix world generation settings being ignored ([#4846](https://github.com/ArchipelagoMW/Archipelago/issues/4846))
+- Lingo: Mark some items as ProgUseful ([#4822](https://github.com/ArchipelagoMW/Archipelago/issues/4822))
+- MLSS: Fix generation error with emblem hunt and no digspots ([#4859](https://github.com/ArchipelagoMW/Archipelago/issues/4859))
+- Pokemon RB: Fix badge behavior when placed as starting PC item ([#4835](https://github.com/ArchipelagoMW/Archipelago/issues/4835))
+
+The original README for Archipelago is below.
+
+---
+
 # [Archipelago](https://archipelago.gg) ![Discord Shield](https://discordapp.com/api/guilds/731205301247803413/widget.png?style=shield) | [Install](https://github.com/ArchipelagoMW/Archipelago/releases)
 
 Archipelago provides a generic framework for developing multiworld capability for game randomizers. In all cases,
