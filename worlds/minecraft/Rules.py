@@ -67,6 +67,11 @@ def can_excavate(world: "MinecraftWorld", state: CollectionState, player: int) -
             and can_adventure(world, state, player)
            )
 
+def can_do_trials(world: "MinecraftWorld", state: CollectionState, player: int) -> bool:
+    return (state.can_reach_location("Minecraft: Trial(s) Edition", player)
+            and basic_combat(world, state, player)
+           )
+
 
 def can_brew_potions(world: "MinecraftWorld", state: CollectionState, player: int) -> bool:
     return state.has('Blaze Rods', player) and state.has('Brewing', player) and has_bottle(world, state, player)
@@ -290,7 +295,7 @@ def get_rules_lookup(world, player: int):
                                                    and state.has("Fishing Rod", player) # Pufferfish, Nautilus Shells
                                                    and state.has("Archery",player)  # Spectral Arrows
                                                    and state.can_reach_location("Bring Home the Beacon", player)  # Haste
-                                                   and state.can_reach_location("Hero of the Village", player)),  # Bad Omen, Hero of the Village
+                                                   and state.can_reach_location("Hero of the Village", player)),  # Hero of the Village
             "Bullseye": lambda state: state.has("Archery", player)
                                        and state.has("Progressive Tools", player, 2)
                                        and has_iron_ingots(world, state, player),
@@ -504,6 +509,29 @@ def get_rules_lookup(world, player: int):
             "Respecting the Remnants": lambda state: can_excavate(world, state, player),
             "Careful Restoration": lambda state: can_excavate(world, state, player),
             "The Power of Books": lambda state: state.has("Progressive Tools", player, 2),
+            "Isn't It Scute?": lambda state: state.has("Brush", player),
+            "Shear Brilliance": lambda state: has_iron_ingots(world, state, player),
+            "Good as New": lambda state: state.has("Brush", player),
+            "The Whole Pack": lambda state: can_adventure(world, state, player),
+            # "Minecraft: Trial(s) Edition": lambda state: basic_combat(world, state, player),
+            "Under Lock and Key": lambda state: can_do_trials(world, state, player),
+            "Blowback": lambda state: can_do_trials(world, state, player),
+            "Who Needs Rockets?": lambda state: can_do_trials(world, state, player),
+            "Crafters Crafting Crafters": lambda state: has_iron_ingots(world, state, player)
+                                                        and state.has("Progressive Tools", player, 2),
+            "Lighten Up": lambda state: has_iron_ingots(world, state, player)
+                                        and (
+                                          ( # can craft Copper Bulb
+                                            state.has("Progressive Tools", player, 2)
+                                            and state.has("Brewing", player)
+                                          )
+                                          or ( # can find Copper Bulb in trial chamber
+                                            state.can_reach_location("Minecraft: Trial(s) Edition", player)
+                                            and state.has("Progressive Tools", player)
+                                          )
+                                        ),
+            "Revaulting": lambda state: can_do_trials(world, state, player),
+            "Over-Overkill": lambda state: state.can_reach_location("Revaulting", player),
         }
     }
     return rules_lookup
