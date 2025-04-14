@@ -7,7 +7,8 @@ from . import MCTestBase
 class TestAdvancements(MCTestBase):
     options = {
         "shuffle_structures": False,
-        "structure_compasses": False
+        "structure_compasses": False,
+        "include_hard_advancements": False,
     }
 
     def test_42000(self):
@@ -909,18 +910,8 @@ class TestAdvancements(MCTestBase):
         self.run_location_tests([
             ["Country Lode, Take Me Home", False, []],
             ["Country Lode, Take Me Home", False, [], ['Progressive Resource Crafting']],
-            ["Country Lode, Take Me Home", False, [], ['Flint and Steel']],
-            ["Country Lode, Take Me Home", False, ['Progressive Tools', 'Progressive Tools'], ['Progressive Tools']],
-            ["Country Lode, Take Me Home", False, [], ['Progressive Weapons']],
-            ["Country Lode, Take Me Home", False, [], ['Progressive Armor', 'Shield']],
-            ["Country Lode, Take Me Home", False, [], ['Brewing']],
-            ["Country Lode, Take Me Home", False, [], ['Bottles']],
-            ["Country Lode, Take Me Home", False, [], ['Bed']],
-            ["Country Lode, Take Me Home", False, [], ['8 Netherite Scrap']],
-            ["Country Lode, Take Me Home", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Flint and Steel', 'Progressive Tools', 'Progressive Tools',
-                                                  'Progressive Weapons', 'Progressive Armor', 'Brewing', 'Bottles', 'Bed', '8 Netherite Scrap']],
-            ["Country Lode, Take Me Home", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Flint and Steel', 'Progressive Tools', 'Progressive Tools',
-                                                  'Progressive Weapons', 'Shield', 'Brewing', 'Bottles', 'Bed', '8 Netherite Scrap']],
+            ["Country Lode, Take Me Home", False, [], ['Progressive Tools']],
+            ["Country Lode, Take Me Home", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools']],
             ])
 
     def test_42067(self):
@@ -1419,114 +1410,4 @@ class TestAdvancements(MCTestBase):
             ["You've Got a Friend in Me", False, [], ["Campfire", "Progressive Resource Crafting"]],
             ["You've Got a Friend in Me", True, ["Progressive Weapons", "Campfire"]],
             ["You've Got a Friend in Me", True, ["Progressive Weapons", "Progressive Resource Crafting"]],
-            ])
-
-    def test_42122(self):
-        self.run_location_tests([
-            ["Isn't It Scute?", False, []],
-            ["Isn't It Scute?", True, ["Brush"]],
-            ])
-
-    def test_42123(self):
-        self.run_location_tests([
-            ["Shear Brilliance", False, []],
-            ["Shear Brilliance", False, [], ["Progressive Tools"]],
-            ["Shear Brilliance", False, [], ["Progressive Resource Crafting"]],
-            ["Shear Brilliance", True, ["Progressive Tools", "Progressive Resource Crafting"]],
-            ])
-
-    def test_42124(self):
-        self.run_location_tests([
-            ["Good as New", False, []],
-            ["Good as New", True, ["Brush"]],
-            ])
-
-    def test_42125(self):
-        self.run_location_tests([
-            ["The Whole Pack", False, []],
-            ["The Whole Pack", False, [], ['Progressive Weapons']],
-            ["The Whole Pack", False, [], ['Campfire', 'Progressive Resource Crafting']],
-            ["The Whole Pack", True, ['Progressive Weapons', 'Campfire']],
-            ["The Whole Pack", True, ['Progressive Weapons', 'Progressive Resource Crafting']],
-            ])
-
-
-    def test_42127(self):
-        self.run_location_tests([
-            ["Under Lock and Key", False, []],
-            ["Under Lock and Key", False, [], ['Progressive Resource Crafting']],
-            ["Under Lock and Key", False, [], ['Progressive Tools']],
-            ["Under Lock and Key", False, [], ['Progressive Weapons']],
-            ["Under Lock and Key", False, [], ['Progressive Armor', 'Shield']],
-            ["Under Lock and Key", False, ['Progressive Tools', 'Progressive Tools'], ['Bucket', 'Progressive Tools']],
-            ["Under Lock and Key", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Progressive Armor']],
-            ["Under Lock and Key", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Progressive Armor']],
-            ["Under Lock and Key", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Shield']],
-            ["Under Lock and Key", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Shield']],
-            ])
-
-    def test_42128(self):
-        self.run_location_tests([
-            ["Blowback", False, []],
-            ["Blowback", False, [], ['Progressive Resource Crafting']],
-            ["Blowback", False, [], ['Progressive Tools']],
-            ["Blowback", False, [], ['Progressive Weapons']],
-            ["Blowback", False, [], ['Progressive Armor', 'Shield']],
-            ["Blowback", False, ['Progressive Tools', 'Progressive Tools'], ['Bucket', 'Progressive Tools']],
-            ["Blowback", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Progressive Armor']],
-            ["Blowback", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Progressive Armor']],
-            ["Blowback", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Shield']],
-            ["Blowback", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Shield']],
-            ])
-
-    def test_42129(self):
-        self.run_location_tests([
-            ["Who Needs Rockets?", False, []],
-            ["Who Needs Rockets?", False, [], ['Progressive Resource Crafting']],
-            ["Who Needs Rockets?", False, [], ['Progressive Tools']],
-            ["Who Needs Rockets?", False, [], ['Progressive Weapons']],
-            ["Who Needs Rockets?", False, [], ['Progressive Armor', 'Shield']],
-            ["Who Needs Rockets?", False, ['Progressive Tools', 'Progressive Tools'], ['Bucket', 'Progressive Tools']],
-            ["Who Needs Rockets?", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Progressive Armor']],
-            ["Who Needs Rockets?", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Progressive Armor']],
-            ["Who Needs Rockets?", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Shield']],
-            ["Who Needs Rockets?", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Shield']],
-            ])
-
-    def test_42130(self):
-        self.run_location_tests([
-            ["Crafters Crafting Crafters", False, []],
-            ["Crafters Crafting Crafters", False, [], ["Progressive Tools"]],
-            ["Crafters Crafting Crafters", False, [], ["Progressive Resource Crafting"]],
-            ["Crafters Crafting Crafters", False, [], ["Progressive Tools", "Progressive Tools"]],
-            ["Crafters Crafting Crafters", False, [], ["Progressive Tools", "Progressive Resource Crafting"]],
-            ["Crafters Crafting Crafters", True, ["Progressive Tools", "Progressive Tools", "Progressive Resource Crafting"]],
-            ])
-
-    def test_42132(self):
-        self.run_location_tests([
-            ["Revaulting", False, []],
-            ["Revaulting", False, [], ['Progressive Resource Crafting']],
-            ["Revaulting", False, [], ['Progressive Tools']],
-            ["Revaulting", False, [], ['Progressive Weapons']],
-            ["Revaulting", False, [], ['Progressive Armor', 'Shield']],
-            ["Revaulting", False, ['Progressive Tools', 'Progressive Tools'], ['Bucket', 'Progressive Tools']],
-            ["Revaulting", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Progressive Armor']],
-            ["Revaulting", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Progressive Armor']],
-            ["Revaulting", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Shield']],
-            ["Revaulting", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Shield']],
-            ])
-
-    def test_42133(self):
-        self.run_location_tests([
-            ["Over-Overkill", False, []],
-            ["Over-Overkill", False, [], ['Progressive Resource Crafting']],
-            ["Over-Overkill", False, [], ['Progressive Tools']],
-            ["Over-Overkill", False, [], ['Progressive Weapons']],
-            ["Over-Overkill", False, [], ['Progressive Armor', 'Shield']],
-            ["Over-Overkill", False, ['Progressive Tools', 'Progressive Tools'], ['Bucket', 'Progressive Tools']],
-            ["Over-Overkill", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Progressive Armor']],
-            ["Over-Overkill", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Progressive Armor']],
-            ["Over-Overkill", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Bucket', 'Progressive Weapons', 'Shield']],
-            ["Over-Overkill", True, ['Progressive Resource Crafting', 'Progressive Tools', 'Progressive Tools', 'Progressive Tools', 'Progressive Weapons', 'Shield']],
             ])

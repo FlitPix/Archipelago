@@ -169,6 +169,7 @@
             "Adventuring Time",
             "A Seedy Place",
             "Husbandry",
+            "Country Lode, Take Me Home",
             "Bee Our Guest",
             "Diamonds!",
             "A Throwaway Joke",
@@ -217,9 +218,7 @@
             "Blowback",
             "Who Needs Rockets?",
             "Crafters Crafting Crafters",
-            "Lighten Up",
-            "Over-Overkill",
-            "Revaulting"
+            "Lighten Up"
         ],
         "The Nether": [
             "Hot Tourist Destinations",
@@ -231,7 +230,6 @@
             "Return to Sender",
             "Hidden in the Depths",
             "Subspace Bubble",
-            "Country Lode, Take Me Home",
             "Uneasy Alliance",
             "Is It a Balloon?",
             "Feels Like Home",
@@ -272,7 +270,9 @@
             "Who's the Pillager Now?",
             "Voluntary Exile",
             "Birthday Song",
-            "You've Got a Friend in Me"
+            "You've Got a Friend in Me",
+            "Over-Overkill",
+            "Revaulting"
         ],
         "Bastion Remnant": [
             "War Pigs",
