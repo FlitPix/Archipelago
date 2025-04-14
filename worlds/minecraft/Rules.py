@@ -519,8 +519,7 @@ def get_rules_lookup(world, player: int):
             "Who Needs Rockets?": lambda state: can_do_trials(world, state, player),
             "Crafters Crafting Crafters": lambda state: has_iron_ingots(world, state, player)
                                                         and state.has("Progressive Tools", player, 2),
-            "Lighten Up": lambda state: has_iron_ingots(world, state, player)
-                                        and (
+            "Lighten Up": lambda state: (
                                           ( # can craft Copper Bulb
                                             state.has("Progressive Tools", player, 2)
                                             and state.has("Brewing", player)
